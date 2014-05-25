@@ -1,0 +1,25 @@
+{
+    "name": "Oslo Bysykkel",
+    "description": "View current status of city bikes in Oslo.",
+    "version": "0.1",
+    "type": "privileged",
+    "launch_path": "/index.html",
+    "icons": {
+        "128": "/images/icon-128.png"
+    },
+    "developer": {
+        "name": "Simen Heggestøyl",
+        "url": "https://github.com/simenheg/"
+    },
+    "permissions": {
+        "systemXHR": {
+            "description": "Needed to update current rack status."
+        },
+        "geolocation": {
+            "description": "Needed to calculate distance to racks."
+        }
+    },
+    "installs_allowed_from": [
+        "*"
+    ]
+}

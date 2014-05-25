@@ -1,0 +1,24 @@
+.unselectable
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.error-message
+{
+    padding: 1rem;
+}
+
+section[role="region"] > header:first-child .icon.icon-refresh
+{
+    background-image: url(../images/refresh.png);
+}
+
+#map
+{
+    height: 100%;
+}

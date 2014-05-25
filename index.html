@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Oslo Bysykkel</title>
+    <link rel="icon" type="image/png" href="img/icon-128.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Styles -->
+    <link href="shared/util.css" rel="stylesheet" type="text/css" />
+    <link href="shared/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="shared/cross_browser.css" rel="stylesheet" type="text/css" />
+    <link href="shared/style/headers.css" rel="stylesheet" type="text/css" />
+    <link href="shared/style/lists.css" rel="stylesheet" type="text/css" />
+    <link href="shared/style/tabs.css" rel="stylesheet" type="text/css" />
+    <link href="shared/leaflet.css" rel="stylesheet" type="text/css" />
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body role="application">
+    <section role="region" id="main">
+      <ul role="tablist" class="bb-tablist">
+
+        <li id="map-panel" role="presentation">
+          <a id="map-tab" href="#map-panel" role="tab" aria-controls="map-tab-panel">
+            Map
+          </a>
+          <div id="map-tab-panel" class="bb-tabpanel" role="tabpanel" aria-labelledby="map-tab">
+            <section role="region">
+              <header class="fixed">
+                <menu type="toolbar">
+                  <a href="#map-panel" id="refresh-map-button">
+                    <span class="icon icon-refresh">Refresh</span>
+                  </a>
+                </menu>
+                <h1>Map</h1>
+              </header>
+              <article class="scrollable header">
+                <div id="map"></div>
+              </article>
+            </section>
+          </div>
+        </li>
+
+        <li id="bike-panel" role="presentation">
+          <a id="bike-tab" href="#bike-panel" role="tab" aria-controls="bike-tab-panel">
+            Bikes
+          </a>
+          <div id="bike-tab-panel" class="bb-tabpanel" role="tabpanel" aria-labelledby="bike-tab">
+            <section role="region">
+              <header class="fixed">
+                <menu type="toolbar">
+                  <a href="#bike-panel" id="refresh-bikes-button">
+                    <span class="icon icon-refresh">Refresh</span>
+                  </a>
+                </menu>
+                <h1>Nearest bikes</h1>
+              </header>
+              <article class="scrollable header">
+                <ul data-type="list" id="bike-list"></ul>
+              </article>
+            </section>
+          </div>
+        </li>
+
+        <li id="lock-panel" role="presentation">
+          <a id="lock-tab" href="#lock-panel" role="tab" aria-controls="lock-tab-panel">
+            Locks
+          </a>
+          <div id="lock-tab-panel" class="bb-tabpanel" role="tabpanel" aria-labelledby="lock-tab">
+            <section role="region">
+              <header class="fixed">
+                <menu type="toolbar">
+                  <a href="#lock-panel" id="refresh-locks-button">
+                    <span class="icon icon-refresh">Refresh</span>
+                  </a>
+                </menu>
+                <h1>Nearest locks</h1>
+              </header>
+              <article class="scrollable header">
+                <ul data-type="list" id="lock-list"></ul>
+              </article>
+            </section>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Scripts -->
+    <script src="scripts/lib/mustache.js"></script>
+    <script src="scripts/lib/leaflet.js"></script>
+    <script src="scripts/parameters.js"></script>
+    <script src="scripts/error.js"></script>
+    <script src="scripts/racks.js"></script>
+    <script src="scripts/status.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
