@@ -1,2 +1,4 @@
 * Oslo Bysykkel
   Firefox OS app for viewing the current status of [[http://www.bysykler.no/en-oslo][Oslo city bikes]].
+
+  [[file:screenshots/map.png]] [[file:screenshots/map-zoomed.png]] [[file:screenshots/nearest-bikes.png]]
