@@ -3,3 +3,9 @@
 
 ** Screenshots
   [[file:screenshots/map.png][file:screenshots/thumbs/map.png]] [[file:screenshots/map-zoomed.png][file:screenshots/thumbs/map-zoomed.png]] [[file:screenshots/nearest-bikes.png][file:screenshots/thumbs/nearest-bikes.png]]
+
+** Credits
+   - Thanks to CloudMade, Vladimir Agafonkin, and contributors for the [[http://leafletjs.com/][Leaflet]] library.
+   - Thanks to Jan Lehnardt and contributors for the [[https://github.com/janl/mustache.js][mustache.js]] library.
+   - Thanks to [[http://www.openstreetmap.org/][OpenStreetMap]] and contributors for the map data, and the
+     [[http://hot.openstreetmap.org/][Humanitarian OpenStreetMap Team]] for their map tiles.
