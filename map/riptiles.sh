@@ -32,5 +32,5 @@ function riptiles
 # Retrieve tiles for Oslo, zoom levels 13-16
 riptiles 13 4337 4342 2380 2384;
 riptiles 14 8675 8684 4761 4768;
-riptiles 15 17358 17366 9525 9534;
+riptiles 15 17354 17366 9525 9534;
 riptiles 16 34710 34731 19052 19068;
