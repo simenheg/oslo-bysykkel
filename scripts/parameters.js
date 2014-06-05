@@ -1,6 +1,7 @@
 var params = {
     "rackStatusURL": "http://bysykkel-prod.appspot.com/json",
     "rackListLength": 12,
+    "updateInterval": 40000,
     "defaultMapPos": [59.921323, 10.737931],
     "defaultZoom": 13,
     "minZoom": 13,

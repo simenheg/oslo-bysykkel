@@ -10,6 +10,12 @@ var rackDistance = {};
 // Maps rack ids to the number of currently free bikes & locks
 var rackStatus = {};
 
+// Position watcher
+var positionWatchID = null;
+
+// Tracks the interval of automatic status updates
+var statusTimerID = null;
+
 // Return a neatly formatted string, describing the distance to a rack.
 function formatDistance(distance) {
     if (distance < 1) { // Less than 1 km to rack
@@ -70,8 +76,8 @@ function updateRackStatus(status) {
     }
 }
 
-// Request geolocation, and update current position if successful.
-function requestAndUpdatePosition() {
+// Register a geolocation watcher if the geolocation feature is available.
+function registerPositionWatch() {
     if (!features.geolocation) {
         renderErrorMessage('bike-list', 'noGeoBikes');
         renderErrorMessage('lock-list', 'noGeoLocks');
@@ -94,7 +100,7 @@ function requestAndUpdatePosition() {
             // geolocation couldn't be retrieved
         };
 
-        navigator.geolocation.getCurrentPosition(success, error, options);
+        positionWatchID = navigator.geolocation.watchPosition(success, error, options);
     }
 }
 
@@ -166,10 +172,22 @@ function checkGeolocation() {
     features.geolocation = 'geolocation' in navigator;
 }
 
-// Request current position and rack status, and update them if successful.
-function updatePositionAndStatus() {
-    requestAndUpdatePosition();
-    requestAndUpdateRackStatus(params.rackStatusURL);
+// Start position and status updates when app is focused, or stop them if app
+// is unfocused.
+function focusHandler() {
+    if (document.hidden) {
+        navigator.geolocation.clearWatch(positionWatchID);
+        clearInterval(statusTimerID);
+    } else {
+        navigator.geolocation.clearWatch(positionWatchID);
+        registerPositionWatch();
+
+        clearInterval(statusTimerID);
+        requestAndUpdateRackStatus(params.rackStatusURL);
+        statusTimerID = setInterval(function() {
+            requestAndUpdateRackStatus(params.rackStatusURL);
+        }, params.updateInterval);
+    }
 }
 
 // Initialize application.
@@ -184,11 +202,8 @@ function updatePositionAndStatus() {
         }
     );
 
-    ['refresh-map-button', 'refresh-bikes-button', 'refresh-locks-button'].map
-    (function(b) {
-        document.getElementById(b).addEventListener('click', updatePositionAndStatus);
-    });
-
     initMap();
-    updatePositionAndStatus();
+
+    document.addEventListener("visibilitychange", focusHandler);
+    focusHandler();
 })();
