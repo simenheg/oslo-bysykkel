@@ -1,0 +1,15 @@
+{
+    "name": "oslo-bysykkel",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/simenheg/oslo-bysykkel"
+    },
+    "devDependencies": {
+        "uglify-js": "latest",
+        "watch": "latest"
+    },
+    "scripts": {
+        "build:js": "uglifyjs src/racks.js src/app.js -c -m -o scripts/app.min.js",
+        "build": "watch 'npm run build:js' src"
+    }
+}

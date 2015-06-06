@@ -625,14 +625,9 @@ map/14/8678/4762.png
 map/14/8678/4764.png
 map/14/8678/4767.png
 style/style.css
-scripts/error.js
-scripts/main.js
-scripts/lib/mustache.js
+scripts/app.min.js
 scripts/lib/leaflet.js
-scripts/parameters.js
-scripts/map.js
-scripts/status.js
-scripts/racks.js
+scripts/lib/mustache.js
 shared/images/layers-2x.png
 shared/images/layers.png
 shared/fonts/FiraSans/FiraSans-Medium.eot
