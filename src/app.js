@@ -330,7 +330,7 @@
     function refreshRackList (listId, filter) {
         var i, id, rack, data;
         var template =
-                '<li><a>' +
+                '<li data-rack-id={{id}}><a href="#map-panel">' +
                 '<aside class="pack-end"><p>{{distance}}</p></aside>' +
                 '<p>{{name}}</p>' +
                 '<p>{{status}}</p>' +
@@ -343,12 +343,22 @@
             id = closest[i];
             rack = racks[id];
             data = {
+                'id': id,
                 'distance': formatDistance(rackDistance[id]),
                 'name': rack.name,
                 'status': formatStatus(rackStatus[id])
             };
 
             bikeList.innerHTML += Mustache.render(template, data);
+        }
+
+        for (i = 0; i < bikeList.children.length; i++) {
+            bikeList.children[i].onclick = function (e) {
+                var rackId = e.currentTarget.dataset.rackId;
+                var rack = racks[rackId];
+                map.panTo([rack.lat, rack.lon]);
+                markers[rackId].openPopup();
+            };
         }
     }
 

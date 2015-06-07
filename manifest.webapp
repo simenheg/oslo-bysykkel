@@ -1,7 +1,7 @@
 {
     "name": "Oslo Bysykkel",
     "description": "View current status of city bikes in Oslo.",
-    "version": "0.2",
+    "version": "0.3",
     "type": "privileged",
     "launch_path": "/index.html",
     "icons": {
